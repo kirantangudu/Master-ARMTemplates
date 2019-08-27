@@ -1,0 +1,5 @@
+
+New-AzResourceGroupDeployment -ResourceGroupName sbddeployments `
+  -TemplateUri https://raw.githubusercontent.com/kirantangudu/Master-ARMTemplates/master/CreateStorageAccount/azuredeploy.json
+
+
