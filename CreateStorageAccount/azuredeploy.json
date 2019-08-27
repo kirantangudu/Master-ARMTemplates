@@ -24,7 +24,7 @@
     }
   },
   "variables": {
-    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+    "storageAccountName": "[concat('sbd', uniquestring(resourceGroup().id))]"
   },
   "resources": [
     {
