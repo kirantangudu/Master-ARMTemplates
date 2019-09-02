@@ -1,0 +1,65 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageNamePrefix": {
+        "type": "string",
+        "metadata": {
+          "description": "The prefix string to add to a generated string that is unique to the resourceGroup."
+        }
+    } , 
+      "storageAccountType": {
+        "type": "string",
+        "defaultValue": "Standard_GRS",
+        "allowedValues": [
+          "Standard_LRS",
+          "Standard_GRS",
+          "Standard_ZRS",
+          "Premium_LRS"
+        ],
+        "metadata": {
+          "description": "Storage Account type"
+        }
+      },
+      "EnvironmentName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of the Integration Service Environment."
+        }
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location for all resources."
+        }
+      }
+    },
+    "variables": {
+        "storageName": "[toLower( concat( parameters('storageNamePrefix'), uniqueString(resourceGroup().id) ) )]"
+             },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",  
+        "apiVersion": "2016-01-01",
+        "location": "[parameters('location')]",
+        "tags": {
+            "ISE": "[variables('storageName')]", 
+            "Environment": "[parameters('EnvironmentName')]"
+          },
+        "sku": {
+          "name": "[parameters('storageAccountType')]"
+        },
+        "kind": "Storage",
+        "properties": {}
+      }
+    ],
+    "outputs": {
+        "storageUri": {
+            "type": "string",
+            "value": "[variables('storageName')]"      
+          }
+    }
+  }
+ 

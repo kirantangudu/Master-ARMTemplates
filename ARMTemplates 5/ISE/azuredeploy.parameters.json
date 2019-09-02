@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "integrationServiceEnvironmentName": {
+            "value": "GLOBAL-C4E-EUS-DEV-ISE"
+        },
+        "EnvironmentName": {
+            "value": "Development"
+        },
+        "managedConnectors": {
+          "value": ["servicebus", "azureblob","sql","ftp","azurefile","azurequeues","azuretables","sftpwithssh","x12","documentdb","eventhubs","mq","sqldw","db2","smtp","si3270"]
+        },
+        "vnetName": {
+            "value": "global-c4e-eus-dev-int-vnet"
+        },
+        "vnetAddressPrefix": {
+            "value": "10.0.0.0/22"
+        },
+        "subnet1Prefix": {
+          "value": "10.0.1.0/26"
+        },
+        "subnet1Name": {
+            "value": "global-c4e-eus-dev-snet-ws"
+          },
+        "subnet2Prefix": {
+          "value": "10.0.1.64/26"
+        },
+        "subnet2Name": {
+            "value": "global-c4e-eus-dev-snet-la"
+          },
+        "subnet3Prefix": {
+          "value": "10.0.1.128/26"
+        },
+        "subnet3Name": {
+            "value": "global-c4e-eus-dev-snet-ds"
+          },
+          "subnet4Name": {
+            "value": "global-c4e-eus-dev-snet-api"
+          },
+        "subnet4Prefix": {
+          "value": "10.0.1.192/26"
+        }
+    }
+  }
