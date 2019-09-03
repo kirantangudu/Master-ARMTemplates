@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {        
         "publisherEmail": {
-            "value": "email@example.com"
+            "value": "kirankumar.tangudu@sbdinc.com"
         },
         "publisherName": {
-            "value": "GEN-UNIQUE"
+            "value": "SBD-UNIQUE"
         }
     }
 }
